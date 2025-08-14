@@ -1,0 +1,33 @@
+.header {
+  width: 100%;
+}
+
+.header__inner {
+    width: 100%;   
+  margin: 0;          
+  padding: 2rem 4rem;      
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.header__logo img {
+  height: 45px;
+  width: auto;
+}
+
+.header__nav {
+  display: flex;
+  gap: 3rem;
+}
+
+.header__nav a {
+  text-decoration: none;
+  color: #ff6060;
+  font-size: 1.1rem;
+  text-transform: none;
+
+  &.active {
+    text-decoration: underline;
+  }
+}

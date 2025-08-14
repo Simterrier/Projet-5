@@ -1,0 +1,40 @@
+.banner {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* centre le contenu */
+
+  &__inner {
+    width: 100%;
+    max-width: 1240px;   /* même largeur utile que le header */
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    height: 223px;       /* valeur Figma */
+    object-fit: cover;   /* coupe l’image pour garder les proportions */
+    border-radius: 25px; /* arrondi comme Figma */
+    display: block;
+  }
+
+    &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3); /* 30% noir */
+    border-radius: 25px;
+  }
+
+  &__text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+       z-index: 1;
+  }
+}

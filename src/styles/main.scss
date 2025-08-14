@@ -1,3 +1,4 @@
+// -------- Imports
 @import "./variables";
 @import "./card";
 @import "./grid";
@@ -5,61 +6,49 @@
 @import "./banner";
 @import "./footer";
 
-html, body, #root { height: 100%; }
-
-.app {                   
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.main-content {            
-  flex: 1;                
-}
-
+// -------- Reset minimal + base
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
-    height: 100%;
+html, body, #root {
+  height: 100%;
 }
 
 body {
-  margin: 0;
   font-family: sans-serif;
+  background: #ffffff;
+  color: #000;
 }
 
-.header, .footer {
+// -------- App layout (footer collé en bas)
+.app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1; // occupe la hauteur restante
+  // padding: 1rem; // si tu veux un padding global sur le contenu
+}
+
+// -------- Header (temporaire ici -> à déplacer dans header.scss)
+.header,
+.footer {
   padding: 1rem;
-  background-color: #f5f5f5;
-}
-
-.header a {
-  margin-right: 1rem;
-  text-decoration: none;
-  color: black;
-}
-
-.header a.active {
-  font-weight: bold;
-  color: red; // ⚠️ couleur provisoire, on mettra la couleur Figma plus tard
-}
-
-.main {
-  padding: 1rem;
+  background-color: #ffffff;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
 
   &__logo img {
-    height: 40px; // adapte selon Figma
+    height: 40px; // TODO: adapter selon Figma
     display: block;
   }
 
@@ -74,18 +63,19 @@ body {
     }
   }
 
-  html, body, #root {
-  height: 100%;
-  margin: 0;
+  a {
+    margin-right: 1rem;
+    text-decoration: none;
+    color: black;
+
+    &.active {
+      font-weight: bold;
+      color: red; // ⚠️ provisoire; remplacer par couleur Figma
+    }
+  }
 }
 
-.app {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.main-content {
-  flex: 1; /* prend toute la place disponible avant le footer */
-}
+// -------- Main wrapper (si tu en as besoin)
+.main {
+  padding: 1rem;
 }

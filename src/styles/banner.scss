@@ -1,40 +1,48 @@
+/* banner.scss — version alignée Figma */
 .banner {
   width: 100%;
-  display: flex;
-  justify-content: center; /* centre le contenu */
+  // on centre le contenu via l'inner
+}
 
-  &__inner {
-    width: 100%;
-    max-width: 1240px;   /* même largeur utile que le header */
-    margin: 0 auto;
-    position: relative;
-  }
+.banner__inner {
+  position: relative;
+  max-width: $container;
+  margin: 0 auto;
+  padding-inline: $space-outer; // marge intérieure horizontale comme le header
 
-  &__image {
-    width: 100%;
-    height: 223px;       /* valeur Figma */
-    object-fit: cover;   /* coupe l’image pour garder les proportions */
-    border-radius: 25px; /* arrondi comme Figma */
-    display: block;
-  }
+  /* pour que l'image occupe toute la largeur utile */
+}
 
-    &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.3); /* 30% noir */
-    border-radius: 25px;
-  }
+.banner__image {
+  width: 100%;
+  height: clamp(160px, 24vw, 223px); // valeur Figma max, fluide en dessous
+  object-fit: cover;
+  border-radius: $radius-lg;
+  display: block;
+}
 
-  &__text {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: white;
-    font-size: 2rem;
-    font-weight: 500;
-       z-index: 1;
-  }
+.banner__overlay {
+  pointer-events: none; // ne bloque pas d’éventuels clics
+  position: absolute;
+  inset: 0; // top:0; right:0; bottom:0; left:0
+  margin-inline: $space-outer; // suit la même largeur que l'image (car padding de l'inner)
+  border-radius: $radius-lg;
+  background-color: rgba(0, 0, 0, 0.35); // léger terni pour lisibilité
+}
+
+.banner__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  margin: 0;
+  color: $white;
+  font-weight: 700;
+  text-align: center;
+
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0,0,0,.25); // boost lisibilité
+  z-index: 1;
 }

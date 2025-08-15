@@ -1,0 +1,37 @@
+$primary: #ff6060;
+
+.about {
+  margin: 0 auto;
+  padding: 0 100px 60px; // aligné avec header/banner
+
+  /* Applique un terni à la bannière uniquement sur cette page */
+  .banner__image {
+    filter: brightness(.55);
+  }
+}
+
+/* Accordéons empilés en pleine largeur */
+.about__accordions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin: 0 auto;
+  max-width: 1023px; // adapte cette valeur pour coller à la maquette
+  width: 100%;
+
+  
+}
+
+/* Texte interne des panneaux */
+.about__text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000;
+}
+
+/* Option : si tu veux les titres un peu plus grands ici */
+.accordion__header span {
+  font-size: 18px;
+  font-weight: 700;
+}

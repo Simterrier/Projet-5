@@ -21,6 +21,12 @@ export default function FicheLogement() {
     equipments = [],
   } = logement;
 
+  // Découpe Nom/Prénom(s) en gérant tous les cas
+  const fullName = (host?.name ?? "").trim();
+  const parts = fullName ? fullName.split(" ") : [];
+  const last = parts.length > 1 ? parts[parts.length - 1] : "";
+  const first = parts.length > 1 ? parts.slice(0, -1).join(" ") : fullName;
+
   return (
     <section className="lodging">
       {/* 1) Carrousel */}
@@ -33,18 +39,32 @@ export default function FicheLogement() {
           <p className="lodging__location">{location}</p>
           <ul className="lodging__tags">
             {tags.map((t) => (
-              <li key={t} className="tag">{t}</li>
+              <li key={t} className="tag">
+                {t}
+              </li>
             ))}
           </ul>
         </div>
 
         <div className="lodging__right">
           <div className="host">
-            <p className="host__name">{host.name}</p>
-            {host.picture && (
-              <img className="host__avatar" src={host.picture} alt={host.name} />
+            {fullName && (
+              <p className="host__name" aria-label={`Hôte : ${fullName}`}>
+                {first && <span className="host__first">{first}</span>}
+                {(last || !first) && (
+                  <span className="host__last">{last || fullName}</span>
+                )}
+              </p>
+            )}
+            {host?.picture && (
+              <img
+                className="host__avatar"
+                src={host.picture}
+                alt={fullName || "Hôte"}
+              />
             )}
           </div>
+
           <Rating value={rating} />
         </div>
       </div>

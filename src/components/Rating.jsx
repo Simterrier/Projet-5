@@ -1,16 +1,18 @@
-export default function Rating({ value = 0, max = 5 }) {
-  const full = Math.round(Number(value) || 0);
-  return (
-    <div className="rating" aria-label={`Note ${full} sur ${max}`}>
-      {Array.from({ length: max }).map((_, i) => (
-        <span
-          key={i}
-          className={`rating__star ${i < full ? "is-full" : "is-empty"}`}
-          aria-hidden="true"
-        >
-          ★
-        </span>
-      ))}
-    </div>
-  );
+import fullStar from "../assets/FullStar.png"; // étoile pleine
+import emptyStar from "../assets/EmptyStar.png"; // étoile vide si tu en as une
+
+export default function Rating({ value }) {
+  const stars = [];
+  for (let i = 1; i <= 5; i++) {
+    stars.push(
+      <img
+        key={i}
+        src={i <= value ? fullStar : emptyStar}
+        alt={i <= value ? "Étoile pleine" : "Étoile vide"}
+        className="rating__star"
+      />
+    );
+  }
+
+  return <div className="rating">{stars}</div>;
 }

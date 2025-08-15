@@ -1,9 +1,10 @@
 import { useState } from "react";
+import arrowRight from "../assets/VectorD.png";
+import arrowLeft from "../assets/VectorG.png";
 
 export default function Carousel({ pictures = [], title }) {
   const [index, setIndex] = useState(0);
   const total = pictures.length;
-
   if (!total) return null;
 
   const prev = () => setIndex((i) => (i - 1 + total) % total);
@@ -19,12 +20,22 @@ export default function Carousel({ pictures = [], title }) {
 
       {total > 1 && (
         <>
-          <button className="carousel__btn carousel__btn--prev" onClick={prev} aria-label="Précédent">
-            ‹
+          <button
+            className="carousel__btn carousel__btn--prev"
+            onClick={prev}
+            aria-label="Précédent"
+          >
+            <img src={arrowLeft} alt="" />
           </button>
-          <button className="carousel__btn carousel__btn--next" onClick={next} aria-label="Suivant">
-            ›
+
+          <button
+            className="carousel__btn carousel__btn--next"
+            onClick={next}
+            aria-label="Suivant"
+          >
+            <img src={arrowRight} alt="" />
           </button>
+
           <div className="carousel__count" aria-hidden="true">
             {index + 1}/{total}
           </div>

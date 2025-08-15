@@ -1,0 +1,54 @@
+
+
+$radius-card: 10px;
+
+.card {
+  display: block;
+  text-decoration: none;
+  color: inherit; /* titre reste blanc via .card__title */
+  border-radius: $radius-card;
+  overflow: hidden; /* pour arrondir l'image + gradient */
+}
+
+.card__thumb {
+  position: relative;
+  height: 340px; /* ajuste selon Figma exact */
+  border-radius: $radius-card;
+}
+
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* dégradé pour lisibilité du titre, comme sur Figma */
+.card__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0.6) 100%
+  );
+ 
+}
+
+.card__title {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  max-width: calc(100% - 24px); /* évite que ça colle au bord droit */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; /* si tu veux couper avec ellipsis */
+}
+
+
+

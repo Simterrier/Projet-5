@@ -2,23 +2,22 @@ import Banner from "../components/Banner";
 import bannerImg from "../assets/banner.png";
 
 import logements from "../data/logements.json";
-import { Link } from "react-router-dom";
-
-
+import Card from "../components/Card";
 
 export default function Home() {
   return (
     <>
-        <Banner image={bannerImg} text="Chez vous, partout et ailleurs" />
+      <Banner image={bannerImg} text="Chez vous, partout et ailleurs" />
 
-      <h1>Accueil</h1>
-      <ul>
-        {logements.map((l) => (
-          <li key={l.id}>
-            <Link to={`/logement/${l.id}`}>{l.title}</Link> — {l.location}
-          </li>
-        ))}
-      </ul>
+      <section className="listing">
+        <div className="listing__inner">
+          <div className="grid">
+            {logements.map((l) => (
+              <Card key={l.id} id={l.id} title={l.title} cover={l.cover} />
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

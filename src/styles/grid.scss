@@ -1,0 +1,40 @@
+
+$pad-side: 100px;
+$container-radius: 25px;
+
+.listing {
+    width: 100%;
+  margin-top: 0 auto;
+  padding: 0 $pad-side; /* 100px de chaque côté — aligné header/banner */
+}
+
+.listing__inner {
+  background: #f6f6f6;
+  border-radius: $container-radius;
+  padding: 100px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 642px); /* 3 colonnes desktop */
+  gap: 104px; /* espace entre cards (ajuste selon Figma) */
+  justify-content: center;
+}
+
+.card__thumb {
+  width: 642px;
+  height: 642px;
+}
+
+/* responsive */
+@media (max-width: 1024px) {
+  .listing { padding: 0 60px; }
+  .listing__inner { padding: 24px; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+}
+
+@media (max-width: 640px) {
+  .listing { padding: 0 20px; }
+  .listing__inner { padding: 16px; }
+  .grid { grid-template-columns: 1fr; gap: 20px; }
+}

@@ -5,6 +5,7 @@
 @import "./header";
 @import "./banner";
 @import "./footer";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 // -------- Reset minimal + base
 * {
@@ -15,6 +16,10 @@
 
 html, body, #root {
   height: 100%;
+}
+
+html, body {
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -38,8 +43,17 @@ body {
 // -------- Header (temporaire ici -> à déplacer dans header.scss)
 .header,
 .footer {
-  padding: 1rem;
+
   background-color: #ffffff;
+}
+
+.header_inner { 
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between ;
 }
 
 .header {
@@ -48,12 +62,11 @@ body {
   justify-content: space-between;
 
   &__logo img {
-    height: 40px; // TODO: adapter selon Figma
+    
     display: block;
   }
 
   &__links a {
-    margin-left: 1rem;
     text-decoration: none;
     color: black;
 
@@ -64,18 +77,10 @@ body {
   }
 
   a {
-    margin-right: 1rem;
+    
     text-decoration: none;
     color: black;
 
-    &.active {
-      font-weight: bold;
-      color: red; // ⚠️ provisoire; remplacer par couleur Figma
-    }
+   
   }
-}
-
-// -------- Main wrapper (si tu en as besoin)
-.main {
-  padding: 1rem;
 }

@@ -1,48 +1,55 @@
-/* banner.scss — version alignée Figma */
+$radius-lg: 25px;
+$pad-desktop: 100px;
+$pad-tablet: 60px;
+$pad-mobile: 20px;
+
 .banner {
   width: 100%;
-  // on centre le contenu via l'inner
+  margin-bottom: 50px;
 }
 
 .banner__inner {
   position: relative;
-  max-width: $container;
   margin: 0 auto;
-  padding-inline: $space-outer; // marge intérieure horizontale comme le header
-
-  /* pour que l'image occupe toute la largeur utile */
+  padding: 0 $pad-desktop;   // 100px de chaque côté -> zone utile 1240
 }
 
 .banner__image {
   width: 100%;
-  height: clamp(160px, 24vw, 223px); // valeur Figma max, fluide en dessous
+  height: 223px;
   object-fit: cover;
   border-radius: $radius-lg;
   display: block;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); 
+  filter: brightness(.55); 
 }
 
-.banner__overlay {
-  pointer-events: none; // ne bloque pas d’éventuels clics
-  position: absolute;
-  inset: 0; // top:0; right:0; bottom:0; left:0
-  margin-inline: $space-outer; // suit la même largeur que l'image (car padding de l'inner)
-  border-radius: $radius-lg;
-  background-color: rgba(0, 0, 0, 0.35); // léger terni pour lisibilité
-}
 
+
+/* Texte centré */
 .banner__text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
+  inset: 0;
+  display: grid;
+  place-items: center;
   margin: 0;
-  color: $white;
+  color: #fff;
   font-weight: 700;
   text-align: center;
-
-  font-size: clamp(1.25rem, 3vw, 2rem);
-  line-height: 1.2;
-  text-shadow: 0 2px 8px rgba(0,0,0,.25); // boost lisibilité
+  font-size: 48px;
   z-index: 1;
+}
+
+/* Breakpoints : on réduit padding ET on ajuste l’overlay en miroir */
+@media (max-width: 1024px) {
+  .banner__inner { padding: 0 $pad-tablet; }
+  .banner__overlay { left: $pad-tablet; right: $pad-tablet; }
+  .banner__image { height: 200px; }
+}
+
+@media (max-width: 640px) {
+  .banner__inner { padding: 0 $pad-mobile; }
+  .banner__overlay { left: $pad-mobile; right: $pad-mobile; }
+  .banner__image { height: 160px; }
+  .banner__text { font-size: 1.4rem; padding: 0 12px; }
 }

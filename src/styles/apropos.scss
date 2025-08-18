@@ -4,20 +4,44 @@
 
 /* Base 2540 : cadre horizontal */
 .about {
-  @include page-frame;
-  padding-block-end: 60px; /* tu avais 60px bas */
-  /* effet terni conservé uniquement ici */
-  .banner__image { filter: brightness(.55); }
+  margin: 0 auto;
+
+  .banner__inner {
+    @include page-frame; /* même cadre horizontal que le header et la grid */
+  }
+
+  .banner__image {
+    filter: brightness(.55);
+  }
 }
 
-/* Accordéons empilés, largeur contrôlée (PRESERVÉ) */
+.about .banner {
+  margin-bottom: 60px;   /* espace sous la bannière */
+}
+
 .about__accordions {
+  margin: 0 auto 60px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
-  margin: 0 auto;
-  max-width: 1023px; /* tu utilisais 1023px — je garde exactement */
+
+  /* plus large que la grid, mais pas bord à bord */
+  max-width: 1800px; 
   width: 100%;
+}
+
+
+.accordion__header {
+  min-height: 52px;
+  padding-block: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.about .accordion__header .accordion__icon {
+  width: 32px;
+  flex-shrink: 0;
+  margin-right: 10px;
 }
 
 /* Texte interne conservé */
@@ -34,10 +58,17 @@
   font-weight: 700;
 }
 
-/* 1440 : rien de spécial, le cadre horizontal est déjà géré par page-frame */
+@media (max-width: 1440px) {
+  .about__accordions {
+    max-width: 1020px;   /* on réduit à 1000px */
+    margin: 0 auto 50px; /* on garde un espace homogène avec footer */
+  }
+   .about .banner__image {
+    height: 223px;
+  }
+}
 
-/* 375 : on compacte un peu le texte si tu veux */
+/* 375 : on compacte un peu le texte */
 @media (max-width: 375px) {
-  .about { padding-block-end: 40px; }
   .about__text { font-size: 14px; }
 }

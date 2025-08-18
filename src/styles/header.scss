@@ -3,8 +3,9 @@
 }
 
 .header__inner {
-  padding-block: 50px;   /* on garde ta hauteur */
-  @include page-frame;   /* ← remplace le padding horizontal */
+  width: 100%;
+  margin: 0;
+  padding: 50px $pad-desktop;   // ← utiliser la variable
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,15 +27,28 @@
   &.active { text-decoration: underline; }
 }
 
-/* -------- 1440px -------- */
-@media (max-width: 1440px) {
-  .header__inner { padding: 40px $pad-tablet; }
+/* -------- -------- */
+@media (max-width: 1024px) {
+  .header__inner {
+    padding: 40px $pad-tablet;  // aligné avec banner
+  }
 }
 
-/* -------- 375px -------- */
 @media (max-width: 375px) {
-  .header__inner { padding: 20px $pad-mobile; }
-  .header__logo img { width: 145px; }
-  .header__nav { gap: 1.25rem; }
-  .header__nav a { font-size: 16px; }
+  .header__inner {
+    padding: 20px;   /* réduit le padding autour */
+  }
+
+  .header__logo img {
+    width: 145px;    /* logo réduit */
+  }
+
+  .header__nav {
+    gap: 20px;       /* espace réduit entre les liens */
+  }
+
+  .header__nav a {
+    font-size: 12px;
+    font-weight: 500;
+  }
 }

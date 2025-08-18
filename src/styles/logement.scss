@@ -4,8 +4,12 @@
 
 /* Base 2540 : cadre horizontal + centrage à 1440 */
 .lodging {
-  @include page-frame;     /* 2540 → 1440 → 375 (horizontal) */
+  @include page-frame;     /* padding-inline: 100px → 60px → 20px */
   @include center-on-1440; /* max-width: 1240 quand <=1440 */
+
+  @media (max-width: 1440px) {
+    padding-inline: 0;   /* ✅ retire le padding pour aligner avec la bannière */
+  }
 }
 
 /* -------- Carousel (grosse version desktop) */
@@ -45,7 +49,7 @@
   padding: 4px 8px;
 }
 
-/* -------- En-tête infos (PRESERVÉ + améliorations responsive) */
+/* -------- En-tête infos */
 .lodging__header {
   display: flex;
   justify-content: space-between;
@@ -65,6 +69,7 @@
   margin: 0 0 16px 0;
   font-size: 18px;
   color: #333;
+  font-weight: 500;
 }
 .lodging__tags {
   display: flex; flex-wrap: wrap; gap: 10px;
@@ -97,11 +102,11 @@
 .rating { display: inline-flex; gap: 15px; }
 .rating__star { width: 24px; height: auto; object-fit: contain; }
 
-/* -------- Accordéons (PRESERVÉ + doublon supprimé) */
+/* -------- Accordéons */
 .lodging__accordions {
   display: grid;
   grid-template-columns: 1fr 1fr;  /* 2 colonnes desktop */
-  gap: 24px;                       /* tu avais 24px dans la dernière version */
+  gap: 76px;
   margin: 24px 0 60px;
   align-items: start;              /* empêche l’étirement vertical */
 }
@@ -112,6 +117,7 @@
 }
 .accordion__header {
   width: 100%;
+  min-height: 52px;
   padding: 14px 16px;
   background: $primary; color: #fff;
   font-weight: 600; font-size: 16px;
@@ -120,14 +126,14 @@
   cursor: pointer;
 
   span { font-size: 18px; font-weight: 700; }
-  .accordion__icon { width: 20px; height: 20px; flex-shrink: 0; }
+  .accordion__icon { width: 32px; flex-shrink: 0; }
 }
 .accordion__content { padding: 14px 16px; }
 p.lodging__desc { font-size: 18px; font-weight: 400; }
 
 /* -------- 1440 */
 @media (max-width: 1440px) {
-  .carousel { height: 500px; }              /* comme demandé */
+  .carousel { height: 415px; }
   .lodging__title { font-size: 32px; }
   .lodging__location { font-size: 16px; }
   .rating { gap: 12px; }
@@ -136,7 +142,7 @@ p.lodging__desc { font-size: 18px; font-weight: 400; }
 
 /* -------- 375 */
 @media (max-width: 375px) {
-  .carousel { height: 255px; }              /* mobile */
+  .carousel { height: 255px; }
   .lodging__header { flex-direction: column; gap: 12px; }
   .lodging__right {
     align-items: flex-start;

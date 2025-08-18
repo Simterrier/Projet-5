@@ -3,7 +3,8 @@
 
 /* Base 2540 */
 .listing {
-  @include page-frame; /* paddings horizontaux 2540/1440/375 */
+  padding: 0 $pad-desktop;
+  margin-bottom: 50px;
 }
 
 .listing__inner {
@@ -21,14 +22,51 @@
   gap: 104px; /* tu l’avais déjà, conservé */
 }
 
-/* 1440 */
 @media (max-width: 1440px) {
-  .listing__inner { padding: 60px; }         /* comme avant sur ta version 1440 */
-  .grid { gap: 40px; grid-template-columns: repeat(3, 1fr); }
+  .listing {
+    padding: 0 100px; /* garde le même cadre que la bannière */
+  }
+
+  .listing__inner {
+    padding: 50px; /* réduit par rapport au 2540 */
+  }
+
+  .grid {
+    grid-template-columns: repeat(3, 340px); /* 3 colonnes de 340px */
+    gap: 60px; /* espace entre les cards */
+    justify-content: center;
+  }
+
+  .card__thumb {
+    width: 340px;
+    height: 340px;
+  }
 }
 
-/* 375 */
 @media (max-width: 375px) {
-  .listing__inner { padding: 20px; }
-  .grid { grid-template-columns: 1fr; gap: 20px; }
+  .listing {
+    padding: 0 20px;          /* marge horizontale plus petite */
+    margin-bottom: 40px;      /* espace sous la section */
+  }
+
+  .listing__inner {
+    padding: 16px;            /* réduit le padding interne */
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* 1 seule colonne */
+    gap: 20px;                  /* espacement vertical */
+    justify-items: center;      /* centre la card */
+  }
+
+  .card__thumb {
+    width: 335px;   /* largeur fixée selon maquette mobile */
+    height: 255px;  /* hauteur fixée selon maquette mobile */
+  }
+
+  .card__title {
+    font-size: 16px;  /* texte un peu plus petit */
+    left: 10px;
+    bottom: 10px;
+  }
 }

@@ -1,5 +1,5 @@
 .notfound {
-  padding-block: 80px 120px;
+  padding-block: 48px 60px;
   @include page-frame;   /* aligne à tout le site */
   display: grid;
   justify-items: center;
@@ -25,6 +25,7 @@
   font-size: 18px;
   color: $black;
   margin-top: 160px;
+  font-weight: 500;
 }
 
 /* -------- 1440px -------- */

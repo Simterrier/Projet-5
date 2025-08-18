@@ -20,6 +20,18 @@
 
 /* -------- 375px -------- */
 @media (max-width: 375px) {
-  .app .footer { padding: 20px $pad-mobile; gap: 20px; }
-  .app .footer__legal { font-size: 14px; }
+@media (max-width: 375px) {
+  .app .footer {
+    padding-block: 50px;  /* top & bottom */
+    gap: 10px;               /* enlève l'espace entre logo et texte */
+  }
+
+  .app .footer__legal {
+    white-space: pre-line; /* pour "All\nrights" dans le JSX */
+    font-size: 12px;       /* taille mobile */
+    line-height: 1.4;
+    margin: 0;
+    text-align: center;
+  }
+}
 }

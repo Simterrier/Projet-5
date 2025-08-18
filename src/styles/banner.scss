@@ -53,26 +53,56 @@
 
 /* -------- 375 -------- */
 @media (max-width: 375px) {
+  .banner__inner {
+    padding: 0 $pad-mobile;
+    position: relative;
+  }
+
   .banner__image {
     height: 111px;
     max-width: none;
-    border-radius: 10px;
-    box-shadow: none;
+    border-radius: 10px;   /* radius mobile */
+    box-shadow: none;     /* pas d’ombre en mobile */
+    display: block;
   }
 
   .banner__text {
-    font-size: 24px;
-    line-height: 1.3;
-    text-align: left;
-    margin: 0;
-    padding: 0;            
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
 
-    /* clés pour éviter le débordement */
-    white-space: normal;   /* autorise le retour à la ligne */
-    word-break: break-word;/* casse proprement si besoin */
-    max-width: 100%;       /* reste dans la bannière */
+    display: flex;
+    flex-direction: column;     /* ⚡ place line1 au-dessus de line2 */
+    justify-content: center;    /* centre verticalement */
+    align-items: flex-start;    /* colle à gauche */
+
+    margin: 0;
+    padding-left: 30px;
+    padding-right: 12px;
+
+    text-align: left;
+    font-size: 24px;
+    line-height: 1.2;
+    max-width: 100%;
+    white-space: normal;
+    text-transform: uppercase;
+  }
+
+  .banner__text .line1,
+  .banner__text .line2 {
+    display: block;
+  }
+
+  .header nav a { 
+    text-transform: uppercase;
+  }
+  .listing__inner { 
+    background-color: #fff;
+  }
+  
+  .banner, 
+  .listing {
+    margin-bottom: 0;
   }
 }

@@ -70,5 +70,54 @@
 
 /* 375 : on compacte un peu le texte */
 @media (max-width: 375px) {
-  .about__text { font-size: 14px; }
+  .about .banner__inner {
+    padding: 0 $pad-mobile;
+    position: relative;
+  }
+  .about .banner__image {
+    height: 111px;
+    max-width: none;
+    border-radius: 10px;
+    box-shadow: none;
+    display: block;
+  }
+  /* espace sous la bannière (même que sous les accordions) */
+  .about .banner { margin-bottom: 32px; }
+
+  /* Accordions centrés, même largeur que la bannière */
+  .about__accordions {
+  
+    width: 335px;
+    max-width: 100%;
+    margin: 0 auto;   /* supprime le bottom 32px */
+    gap: 16px;
+  
+  }
+
+  /* En-tête des accordions */
+  .about .accordion__header {
+    min-height: 30px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+
+    /* Titre */
+    span {
+      font-size: 13px;
+      font-weight: 700; /* demandé */
+    }
+    /* Flèche */
+    .accordion__icon {
+      width: 16px;
+      flex-shrink: 0;
+    }
+  }
+
+  /* Contenu des accordions */
+  .about .accordion__content .about__text {
+    font-size: 12px;
+    font-weight: 700; /* demandé */
+    line-height: 1.4;
+  }
+  
 }

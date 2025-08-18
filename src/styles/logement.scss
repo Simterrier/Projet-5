@@ -170,7 +170,7 @@ p.lodging__desc { font-size: 18px; font-weight: 400; }
   }
    .carousel__btn img,
   .carousel__btn svg {
-    width: 24px ;   /* flèche réelle réduite */
+    width: 12px ;   /* flèche réelle réduite */
    
   }
 .carousel__count {
@@ -243,18 +243,23 @@ p.lodging__desc { font-size: 18px; font-weight: 400; }
  .lodging .accordion__header {
     min-height: 30px ;
     padding: 6px 10px ;
+ }
     span {
       font-size: 13px ;
     }
 
-    .accordion__icon {
+    .accordion__header .accordion__icon {
       width: 16px ;
       
     }
-  }
+  
 
   .lodging .accordion__content {
     font-size: 12px ;
     line-height: 1.4;
   }
-}
+
+   .lodging .accordion__content p {
+    font-size: 12px;
+   }
+  }

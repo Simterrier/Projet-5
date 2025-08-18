@@ -1,6 +1,6 @@
 .notfound {
   padding-block: 48px 60px;
-  @include page-frame;   /* aligne à tout le site */
+  @include page-frame;   
   display: grid;
   justify-items: center;
   row-gap: 24px;
@@ -45,7 +45,7 @@
   .notfound__msg { font-size: 18px; margin-top: 0px; }
   .notfound__link { font-size: 14px; margin-top: 0px; }
   .notfound__msg {
-  white-space: pre-line; /* ✅ interprète le \n comme un retour */
+  white-space: pre-line;
   text-align: center;
 }
 

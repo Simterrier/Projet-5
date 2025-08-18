@@ -1,32 +1,22 @@
-$radius-lg: 25px;
-$pad-desktop: 100px;
-$pad-tablet: 60px;
-$pad-mobile: 20px;
-
 .banner {
   width: 100%;
   margin-bottom: 50px;
 }
 
 .banner__inner {
+  @include page-frame;   /* ← même cadre horizontal que le header */
   position: relative;
-  margin: 0 auto;
-  padding: 0 $pad-desktop;   // 100px de chaque côté -> zone utile 1240
 }
 
 .banner__image {
   width: 100%;
-  height: 223px;
+  height: 400px; /* grand écran */
   object-fit: cover;
   border-radius: $radius-lg;
   display: block;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25); 
-  filter: brightness(.55); 
+  filter: brightness(.55);
 }
 
-
-
-/* Texte centré */
 .banner__text {
   position: absolute;
   inset: 0;
@@ -40,16 +30,29 @@ $pad-mobile: 20px;
   z-index: 1;
 }
 
-/* Breakpoints : on réduit padding ET on ajuste l’overlay en miroir */
-@media (max-width: 1024px) {
+/* -------- 1440px -------- */
+@media (max-width: 1440px) {
   .banner__inner { padding: 0 $pad-tablet; }
-  .banner__overlay { left: $pad-tablet; right: $pad-tablet; }
-  .banner__image { height: 200px; }
+
+  /* ==> on centre l’image sur un conteneur 1240 comme la grid */
+  .banner__image {
+    max-width: $container-max;     /* 1240px */
+    margin-inline: auto;           /* centrée */
+  }
+
+  /* ==> on contraint aussi l’overlay texte sur la même largeur */
+  .banner__text {
+    left: 0; right: 0;             /* nécessaire pour centrer un absolu */
+    max-width: $container-max;
+    margin-inline: auto;
+  }
+
+  .banner__image { height: 300px; }
 }
 
-@media (max-width: 640px) {
+/* -------- 375px -------- */
+@media (max-width: 375px) {
   .banner__inner { padding: 0 $pad-mobile; }
-  .banner__overlay { left: $pad-mobile; right: $pad-mobile; }
-  .banner__image { height: 160px; }
-  .banner__text { font-size: 1.4rem; padding: 0 12px; }
+  .banner__image { height: 160px; max-width: none; } /* plein cadre en mobile */
+  .banner__text { max-width: none; font-size: 1.4rem; padding: 0 12px; }
 }

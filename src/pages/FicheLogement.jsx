@@ -65,7 +65,7 @@ export default function FicheLogement() {
             )}
           </div>
 
-          <Rating value={rating} />
+          <Rating value={Number(rating)} />
         </div>
       </div>
 

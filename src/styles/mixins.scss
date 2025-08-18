@@ -1,0 +1,42 @@
+/* styles/_mixins.scss */
+@import "./variables";
+
+/* Breakpoints utilisés partout */
+$bp-1440: 1440px !default;
+$bp-375: 375px !default;
+
+/* Media-helper simple */
+@mixin down($bp) {
+  @media (max-width: $bp) { @content; }
+}
+
+/* Cadre horizontal du site : 2540 (base) → 1440 → 375 */
+@mixin page-frame {
+  /* Base (ton écran 2540) */
+  padding-inline: $pad-desktop;
+
+  /* Figma 1440 */
+  @include down($bp-1440) {
+    padding-inline: $pad-tablet;
+  }
+
+  /* Mobile 375 */
+  @include down($bp-375) {
+    padding-inline: $pad-mobile;
+  }
+}
+
+/* Centrage + largeur max quand on passe à 1440 (Figma) */
+@mixin center-on-1440 {
+  @include down($bp-1440) {
+    max-width: $container-max;
+    margin-inline: auto;
+  }
+}
+
+/* Optionnels mais utiles */
+@mixin sr-only {
+  position:absolute!important; width:1px!important; height:1px!important;
+  padding:0!important; margin:-1px!important; overflow:hidden!important;
+  clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important;
+}

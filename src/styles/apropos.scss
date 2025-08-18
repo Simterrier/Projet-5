@@ -1,28 +1,26 @@
-$primary: #ff6060;
+/* ====== A PROPOS ====== */
+@import "./variables";
+@import "./mixins";
 
+/* Base 2540 : cadre horizontal */
 .about {
-  margin: 0 auto;
-  padding: 0 100px 60px; // aligné avec header/banner
-
-  /* Applique un terni à la bannière uniquement sur cette page */
-  .banner__image {
-    filter: brightness(.55);
-  }
+  @include page-frame;
+  padding-block-end: 60px; /* tu avais 60px bas */
+  /* effet terni conservé uniquement ici */
+  .banner__image { filter: brightness(.55); }
 }
 
-/* Accordéons empilés en pleine largeur */
+/* Accordéons empilés, largeur contrôlée (PRESERVÉ) */
 .about__accordions {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
   margin: 0 auto;
-  max-width: 1023px; // adapte cette valeur pour coller à la maquette
+  max-width: 1023px; /* tu utilisais 1023px — je garde exactement */
   width: 100%;
-
-  
 }
 
-/* Texte interne des panneaux */
+/* Texte interne conservé */
 .about__text {
   margin: 0;
   font-size: 16px;
@@ -30,8 +28,16 @@ $primary: #ff6060;
   color: #000;
 }
 
-/* Option : si tu veux les titres un peu plus grands ici */
+/* Option: titres accordéons un peu plus grands ici (conservé) */
 .accordion__header span {
   font-size: 18px;
   font-weight: 700;
+}
+
+/* 1440 : rien de spécial, le cadre horizontal est déjà géré par page-frame */
+
+/* 375 : on compacte un peu le texte si tu veux */
+@media (max-width: 375px) {
+  .about { padding-block-end: 40px; }
+  .about__text { font-size: 14px; }
 }

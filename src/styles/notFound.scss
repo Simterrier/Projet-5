@@ -1,11 +1,6 @@
-$primary: #ff6060;
-
 .notfound {
-  /* même cadrage que le reste */
-  margin: 0 auto;
-  padding: 80px 100px 120px;
-
-  /* centrage vertical/horizontal du contenu */
+  padding-block: 80px 120px;
+  @include page-frame;   /* aligne à tout le site */
   display: grid;
   justify-items: center;
   row-gap: 24px;
@@ -16,24 +11,34 @@ $primary: #ff6060;
   margin: 0;
   font-weight: 700;
   color: $primary;
-  line-height: 1;
-  /* tailles fluides pour grand écran */
   font-size: 288px;
 }
 
 .notfound__msg {
-  margin: 100px 0 0px 0;
+  margin-top: 100px;
   font-size: 36px;
-  color: $primary; // comme sur la maquette
+  color: $primary;
   font-weight: 500;
 }
 
 .notfound__link {
   font-size: 18px;
-  color: #000;
+  color: $black;
   margin-top: 160px;
 }
 
-.notfound__code {
-  font-family: 'Montserrat', sans-serif;
+/* -------- 1440px -------- */
+@media (max-width: 1440px) {
+  .notfound { padding: 60px $pad-tablet 100px; }
+  .notfound__code { font-size: 200px; }
+  .notfound__msg { font-size: 28px; margin-top: 60px; }
+  .notfound__link { font-size: 16px; margin-top: 100px; }
+}
+
+/* -------- 375px -------- */
+@media (max-width: 375px) {
+  .notfound { padding: 40px $pad-mobile 60px; }
+  .notfound__code { font-size: 96px; }
+  .notfound__msg { font-size: 18px; margin-top: 24px; }
+  .notfound__link { font-size: 14px; margin-top: 40px; }
 }

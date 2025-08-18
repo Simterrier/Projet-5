@@ -1,30 +1,23 @@
+/* ====== FICHE LOGEMENT ====== */
+@import "./variables";
+@import "./mixins";
 
-$primary: #ff6060; // ta couleur principale
-$radius-lg: 25px;
-
-/* Section globale */
+/* Base 2540 : cadre horizontal + centrage à 1440 */
 .lodging {
-  margin: 0 auto;
-  padding: 0 100px; // aligné header/banner
+  @include page-frame;     /* 2540 → 1440 → 375 (horizontal) */
+  @include center-on-1440; /* max-width: 1240 quand <=1440 */
 }
 
-/* -------- Carousel */
+/* -------- Carousel (grosse version desktop) */
 .carousel {
   position: relative;
   width: 100%;
-  height: 780px;
+  height: 780px;              /* tu voulais conserver cette hauteur en 2540 */
   border-radius: $radius-lg;
   overflow: hidden;
   margin-bottom: 40px;
 }
-
-.carousel__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  overflow: hidden;
-  
-}
+.carousel__img { width: 100%; height: 100%; object-fit: cover; }
 
 .carousel__btn {
   position: absolute;
@@ -33,8 +26,6 @@ $radius-lg: 25px;
   border: 0;
   background: transparent;
   color: #fff;
-  font-size: 32px;
-  line-height: 1;
   width: 48px; height: 48px;
   border-radius: 50%;
   cursor: pointer;
@@ -44,17 +35,17 @@ $radius-lg: 25px;
 
 .carousel__count {
   position: absolute;
-  bottom: 35px;
+  bottom: 16px;
   left: 50%;
   transform: translateX(-50%);
   color: #fff;
   font-weight: 500;
+  font-size: 14px;
+  background: transparent;
   padding: 4px 8px;
-  background:transparent;
-  font-size: 18px;
 }
 
-/* -------- Header infos */
+/* -------- En-tête infos (PRESERVÉ + améliorations responsive) */
 .lodging__header {
   display: flex;
   justify-content: space-between;
@@ -63,133 +54,97 @@ $radius-lg: 25px;
   margin-bottom: 24px;
 }
 
+/* bloc gauche */
 .lodging__title {
   margin: 0 0 8px 0;
   font-size: 36px;
   font-weight: 500;
-  color: #FF6060;
+  color: $primary;
 }
-
 .lodging__location {
   margin: 0 0 16px 0;
   font-size: 18px;
   color: #333;
-  
 }
-
 .lodging__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  list-style: none;
-  padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 10px;
+  list-style: none; padding: 0; margin: 0;
 }
-
 .tag {
-  background: $primary;
-  color: #fff;
-  border-radius: 10px;
-  padding: 6px 12px;
-  font-size: 14px;
-  font-weight: 700;
+  background: $primary; color: #fff;
+  border-radius: 10px; padding: 6px 12px;
+  font-size: 14px; font-weight: 700;
 }
 
-/* Hôte + note à droite */
+/* bloc droit (host + rating) */
 .lodging__right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 12px;
 }
-
 .host {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
 }
-.host__name { 
-    margin: 0;
-    font-weight: 500;
-    font-size: 18px;
-    color: #FF6060;
-    display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+.host__name {
+  margin: 0; font-weight: 500; font-size: 18px; color: $primary;
+  display: flex; flex-direction: column; align-items: flex-end;
 }
-
 .host__avatar {
-  width: 70px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 70px; height: 70px;
+  border-radius: 50%; object-fit: cover;
 }
 
+/* rating */
+.rating { display: inline-flex; gap: 15px; }
+.rating__star { width: 24px; height: auto; object-fit: contain; }
 
-
-/* Note */
-.rating {
-  display: inline-flex;
-  gap: 15px;  
-}
-
-.rating__star {
-  width: 24px;
-
-  object-fit: contain;
-}
-
-/* -------- Accordéons */
+/* -------- Accordéons (PRESERVÉ + doublon supprimé) */
 .lodging__accordions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
+  grid-template-columns: 1fr 1fr;  /* 2 colonnes desktop */
+  gap: 24px;                       /* tu avais 24px dans la dernière version */
   margin: 24px 0 60px;
+  align-items: start;              /* empêche l’étirement vertical */
 }
-
 .accordion {
   background: #f6f6f6;
   border-radius: 10px;
   overflow: hidden;
 }
-
 .accordion__header {
   width: 100%;
   padding: 14px 16px;
-  background: $primary;
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
+  background: $primary; color: #fff;
+  font-weight: 600; font-size: 16px;
   border: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
   cursor: pointer;
 
-  span {
-    font-size: 18px;
-    font-weight: 700;
+  span { font-size: 18px; font-weight: 700; }
+  .accordion__icon { width: 20px; height: 20px; flex-shrink: 0; }
+}
+.accordion__content { padding: 14px 16px; }
+p.lodging__desc { font-size: 18px; font-weight: 400; }
+
+/* -------- 1440 */
+@media (max-width: 1440px) {
+  .carousel { height: 500px; }              /* comme demandé */
+  .lodging__title { font-size: 32px; }
+  .lodging__location { font-size: 16px; }
+  .rating { gap: 12px; }
+  .rating__star { width: 22px; }
+}
+
+/* -------- 375 */
+@media (max-width: 375px) {
+  .carousel { height: 255px; }              /* mobile */
+  .lodging__header { flex-direction: column; gap: 12px; }
+  .lodging__right {
+    align-items: flex-start;
+    .host__name { align-items: flex-start; }
   }
-
-  .accordion__icon {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-  }
-}
-
-.accordion__content {
-  padding: 14px 16px;
-}
-
-p.lodging__desc {
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.lodging__accordions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin: 24px 0 60px;
-  align-items: start;   /* <— empêche l’étirement vertical du 2e bloc */
+  .lodging__accordions { grid-template-columns: 1fr; gap: 20px; }
+  .lodging__title { font-size: 24px; }
+  .lodging__location { font-size: 14px; }
+  .rating { gap: 8px; }
+  .rating__star { width: 20px; }
 }

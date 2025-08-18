@@ -1,11 +1,14 @@
-$container: 1240px;
-$space-outer: clamp(16px, 4vw, 40px); // padding horizontal global
-$space-vert: clamp(12px, 2.5vw, 24px);
+$primary: #ff6060;
 
-$primary: #ff6060; // couleur Figma
-$text: #000;
-$bg-page: #f6f6f6; // fond gris clair de la maquette
 $white: #fff;
 $black: #000;
 
-$radius-lg: 25px; // radius banner/cartes
+$radius-lg: 25px;
+$radius-card: 10px;
+
+/* Largeurs et paddings */
+$container-max: 1240px; // maquette figma
+$pad-desktop: 100px;    // écran 2540
+$pad-tablet: 60px;      // écran 1440
+$pad-mobile: 20px;      // mobile 375
+$bp-xs: 375px;

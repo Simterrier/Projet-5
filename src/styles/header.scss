@@ -1,21 +1,16 @@
-
-
 .header {
   width: 100%;
 }
 
 .header__inner {
-    width: 100%;   
-  margin: 0;          
-  padding: 50px 100px;    
+  padding-block: 50px;   /* on garde ta hauteur */
+  @include page-frame;   /* ← remplace le padding horizontal */
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
 }
 
-.header__logo img {
-  width: 210px;
-}
+.header__logo img { width: 210px; }
 
 .header__nav {
   display: flex;
@@ -26,8 +21,20 @@
   font-size: 24px;
   font-weight: 500;
   text-decoration: none;
+  color: $black;
 
-  &.active {
-    text-decoration: underline;
-  }
+  &.active { text-decoration: underline; }
+}
+
+/* -------- 1440px -------- */
+@media (max-width: 1440px) {
+  .header__inner { padding: 40px $pad-tablet; }
+}
+
+/* -------- 375px -------- */
+@media (max-width: 375px) {
+  .header__inner { padding: 20px $pad-mobile; }
+  .header__logo img { width: 145px; }
+  .header__nav { gap: 1.25rem; }
+  .header__nav a { font-size: 16px; }
 }

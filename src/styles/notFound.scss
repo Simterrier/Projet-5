@@ -38,8 +38,15 @@
 
 /* -------- 375px -------- */
 @media (max-width: 375px) {
-  .notfound { padding: 40px $pad-mobile 60px; }
+  .notfound {  
+  min-height: calc(100vh - 160px);
+  padding: 40px 20px;}
   .notfound__code { font-size: 96px; }
-  .notfound__msg { font-size: 18px; margin-top: 24px; }
-  .notfound__link { font-size: 14px; margin-top: 40px; }
+  .notfound__msg { font-size: 18px; margin-top: 0px; }
+  .notfound__link { font-size: 14px; margin-top: 0px; }
+  .notfound__msg {
+  white-space: pre-line; /* ✅ interprète le \n comme un retour */
+  text-align: center;
+}
+
 }

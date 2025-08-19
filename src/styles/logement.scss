@@ -131,12 +131,18 @@
 .accordion__content { padding: 14px 16px; }
 p.lodging__desc { font-size: 16px; font-weight: 400; }
 
-ul {
+/* scoping des listes dans les accordions */
+.accordion__content ul {
   list-style: none;
+  padding-left: 0;
+  margin: 0;
 }
-
-li {
-  margin-bottom: 5px;
+.accordion__content li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.accordion__content li:last-child {
+  margin-bottom: 0;
 }
 
 /* -------- 1440 */
@@ -147,8 +153,7 @@ li {
 }
 
 /* -------- 375 */
-
-  @media (max-width: 375px) {
+@media (max-width: 375px) {
   .carousel {
     width: 335px;     /* largeur max en mobile */
     height: 255px;    /* tu avais déjà */
@@ -160,6 +165,7 @@ li {
   .host {
     margin-bottom: 0;
   }
+
   /* largeur commune */
   .lodging {
     display: flex;
@@ -174,24 +180,25 @@ li {
     max-width: 100%;
     margin-bottom: 0;
   }
-   .carousel__btn img,
+
+  .carousel__btn img,
   .carousel__btn svg {
     width: 12px ;   /* flèche réelle réduite */
-   
   }
-.carousel__count {
+
+  .carousel__count {
     display: none;
   }
   
-  /* Header colonne (déjà prévu mais je regroupe ici) */
+  /* Header colonne */
   .lodging__header {
     flex-direction: column;
     gap: 12px;
     margin: 10px 0;
   }
 
-   .lodging__title {
-    font-size: 20px;
+  .lodging__title {
+    font-size: 18px;
     font-weight: 500;
   }
 
@@ -241,31 +248,32 @@ li {
   }
 
   /* Accordéons : une seule colonne */
-   .lodging__accordions {
+  .lodging__accordions {
     grid-template-columns: 1fr;
     gap: 20px;
     margin: 0;
   }
- .lodging .accordion__header {
-    min-height: 30px ;
-    padding: 6px 10px ;
- }
+
+  .lodging .accordion__header {
+    min-height: 30px;
+    padding: 6px 10px;
+
     span {
-      font-size: 13px ;
+      font-size: 13px;
+      font-weight: 700; /* ✅ demandé */
     }
 
-    .accordion__header .accordion__icon {
-      width: 16px ;
-      
+    .accordion__icon {
+      width: 16px;
     }
-  
+  }
 
   .lodging .accordion__content {
-    font-size: 12px ;
+    font-size: 12px;
     line-height: 1.4;
   }
 
-   .lodging .accordion__content p {
+  .lodging .accordion__content p {
     font-size: 12px;
-   }
   }
+}

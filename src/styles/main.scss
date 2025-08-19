@@ -4,10 +4,23 @@
 
 html, body, #root { height: 100%; }
 
-html, body { font-family: "Montserrat", sans-serif; background: #ffffff; color: #000; }
+html, body {
+  font-family: "Montserrat", sans-serif;
+  background: #ffffff;
+  color: #000;
+}
 
-.app { min-height: 100%; display: flex; flex-direction: column; }
-.main-content { flex: 1; }
+/* Layout global (sticky footer) */
+.app {
+  min-height: 100vh;          /* occupe au moins la hauteur viewport */
+  display: flex;
+  flex-direction: column;
+}
+.main-content {
+  flex: 1 0 auto;             /* le main prend l’espace restant */
+}
+/* (Pas d’override mobile ici -> pas de blanc sous le footer) */
+
 
 /* Imports modules */
 @import "./variables";

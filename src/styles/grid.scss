@@ -51,6 +51,7 @@
 
   .listing__inner {
     padding: 16px;            /* réduit le padding interne */
+    background-color: #ffffff;
   }
 
   .grid {
@@ -65,7 +66,7 @@
   }
 
   .card__title {
-    font-size: 16px;  /* texte un peu plus petit */
+      /* texte un peu plus petit */
     left: 10px;
     bottom: 10px;
   }

@@ -1,3 +1,4 @@
+/* ====== CARDS ====== */
 .card {
   display: block;
   text-decoration: none;
@@ -22,7 +23,11 @@
 .card__gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0.6) 100%
+  );
 }
 
 .card__title {
@@ -31,8 +36,8 @@
   bottom: 12px;
   margin: 0;
   color: #fff;
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 18px;       /* ✅ fixé partout */
+  font-weight: 700;      /* ✅ fixé partout */
   line-height: 1.2;
   max-width: calc(100% - 24px);
   overflow: hidden;
@@ -40,13 +45,14 @@
   white-space: nowrap;
 }
 
+/* -------- 1440px -------- */
 @media (max-width: 1440px) {
   .card__title {
     white-space: normal;          /* autorise le retour à la ligne */
-    line-height: 1.2;             /* base pour calculer la hauteur max */
+    line-height: 1.2;             /* base pour calcul de la hauteur */
     max-height: calc(2 * 1.2em);  /* limite à 2 lignes */
     overflow: hidden;             /* coupe ce qui dépasse */
-    text-overflow: clip;          /* (optionnel) explicite la coupe sans ellipsis */
-    display: block;               /* s'assure d'un box classique */
+    text-overflow: clip;
+    display: block;
   }
 }

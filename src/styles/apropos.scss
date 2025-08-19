@@ -8,10 +8,40 @@
 
   .banner__inner {
     @include page-frame; /* même cadre horizontal que le header et la grid */
+    position: relative;
+
+    /* Overlay spécifique à la page A propos (30%) */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0; /* couvre l'image */
+      background: rgba(0, 0, 0, 0.3); /* 30% noir */
+      border-radius: $radius-lg;
+      pointer-events: none;
+      z-index: 1;
+    }
   }
 
   .banner__image {
-    filter: brightness(.55);
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: $radius-lg;
+    display: block;
+    box-shadow: 0px 4px 4px 0px #00000040;
+  }
+
+  .banner__text {
+    position: absolute;
+    inset: 0;
+    z-index: 2; /* texte au-dessus de l’overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
   }
 }
 
@@ -29,7 +59,6 @@
   max-width: 1800px; 
   width: 100%;
 }
-
 
 .accordion__header {
   min-height: 52px;
@@ -54,26 +83,33 @@
 
 /* Option: titres accordéons un peu plus grands ici (conservé) */
 .accordion__header span {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 700;
 }
 
+/* -------- 1440px -------- */
 @media (max-width: 1440px) {
   .about__accordions {
     max-width: 1020px;   /* on réduit à 1000px */
-    margin: 0 auto 50px; /* on garde un espace homogène avec footer */
+    margin: 0 auto 50px; /* homogène avec footer */
   }
-   .about .banner__image {
+
+  .about .banner__image {
+    height: 223px;
+  }
+
+  .about .banner__inner::after {
     height: 223px;
   }
 }
 
-/* 375 : on compacte un peu le texte */
+/* -------- 375px -------- */
 @media (max-width: 375px) {
   .about .banner__inner {
     padding: 0 $pad-mobile;
     position: relative;
   }
+
   .about .banner__image {
     height: 111px;
     max-width: none;
@@ -81,17 +117,21 @@
     box-shadow: none;
     display: block;
   }
-  /* espace sous la bannière (même que sous les accordions) */
+
+  .about .banner__inner::after {
+    height: 111px;
+    border-radius: 10px;
+  }
+
+  /* espace sous la bannière */
   .about .banner { margin-bottom: 32px; }
 
   /* Accordions centrés, même largeur que la bannière */
   .about__accordions {
-  
     width: 335px;
     max-width: 100%;
-    margin: 0 auto;   /* supprime le bottom 32px */
+    margin: 0 auto;
     gap: 16px;
-  
   }
 
   /* En-tête des accordions */
@@ -104,8 +144,9 @@
     /* Titre */
     span {
       font-size: 13px;
-      font-weight: 700; /* demandé */
+      font-weight: 700;
     }
+
     /* Flèche */
     .accordion__icon {
       width: 16px;
@@ -116,8 +157,7 @@
   /* Contenu des accordions */
   .about .accordion__content .about__text {
     font-size: 12px;
-    font-weight: 700; /* demandé */
+    font-weight: 700;
     line-height: 1.4;
   }
-  
 }

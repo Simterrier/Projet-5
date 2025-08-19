@@ -32,10 +32,21 @@
   margin: 0;
   color: #fff;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.2;
   max-width: calc(100% - 24px);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+@media (max-width: 1440px) {
+  .card__title {
+    white-space: normal;          /* autorise le retour à la ligne */
+    line-height: 1.2;             /* base pour calculer la hauteur max */
+    max-height: calc(2 * 1.2em);  /* limite à 2 lignes */
+    overflow: hidden;             /* coupe ce qui dépasse */
+    text-overflow: clip;          /* (optionnel) explicite la coupe sans ellipsis */
+    display: block;               /* s'assure d'un box classique */
+  }
 }

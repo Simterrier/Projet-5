@@ -129,13 +129,19 @@
   .accordion__icon { width: 32px; flex-shrink: 0; }
 }
 .accordion__content { padding: 14px 16px; }
-p.lodging__desc { font-size: 18px; font-weight: 400; }
+p.lodging__desc { font-size: 16px; font-weight: 400; }
+
+ul {
+  list-style: none;
+}
+
+li {
+  margin-bottom: 5px;
+}
 
 /* -------- 1440 */
 @media (max-width: 1440px) {
   .carousel { height: 415px; }
-  .lodging__title { font-size: 32px; }
-  .lodging__location { font-size: 16px; }
   .rating { gap: 12px; }
   .rating__star { width: 22px; }
 }

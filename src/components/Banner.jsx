@@ -1,5 +1,4 @@
 export default function Banner({ image, text }) {
-  // Découpe le texte si besoin
   const parts = text?.split(",") || [];
 
   return (
@@ -10,8 +9,8 @@ export default function Banner({ image, text }) {
           <h1 className="banner__text">
             {parts.length === 2 ? (
               <>
-                <span className="line1">{parts[0]},</span>
-                <span className="line2">{parts[1]}</span>
+                <span className="line1">{parts[0]}</span>
+                <span className="line2">{parts[1].trim()}</span>
               </>
             ) : (
               text

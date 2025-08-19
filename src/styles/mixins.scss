@@ -1,5 +1,5 @@
 /* styles/_mixins.scss */
-@import "./variables";
+@use "./variables" as *;
 
 /* Breakpoints utilisés partout */
 $bp-1440: 1440px !default;
@@ -36,7 +36,13 @@ $bp-375: 375px !default;
 
 /* Optionnels mais utiles */
 @mixin sr-only {
-  position:absolute!important; width:1px!important; height:1px!important;
-  padding:0!important; margin:-1px!important; overflow:hidden!important;
-  clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }

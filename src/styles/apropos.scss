@@ -1,17 +1,17 @@
 /* ====== A PROPOS ====== */
-@import "./variables";
-@import "./mixins";
+@use "variables" as *;
+@use "mixins" as *;
 
 /* Base 2540 : cadre horizontal */
 .about {
   margin: 0 auto;
 
-  .banner {                     /* 👈 cadre horizontal déplacé ici */
-    @include page-frame;
-    margin-bottom: 60px;        /* espace sous la bannière */
+  .banner {
+    margin-bottom: 60px;   /* espace sous la bannière */
+    @include page-frame;   /* mixin en dernier -> pas de mixed-decls */
   }
 
-  .banner__inner {              /* 👈 plus de padding ici */
+  .banner__inner {
     position: relative;
   }
 
@@ -107,7 +107,7 @@
 
 /* -------- 375px -------- */
 @media (max-width: 375px) {
-  /* padding latéral sur le wrapper (déjà ici) */
+  /* padding latéral sur le wrapper */
   .about .banner {
     margin-bottom: 32px;
     padding: 0 $pad-mobile;

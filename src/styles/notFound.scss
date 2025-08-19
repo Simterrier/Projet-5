@@ -1,10 +1,17 @@
+/* styles/notFound.scss */
+@use "variables" as *;
+@use "mixins" as *;
+
 .notfound {
+  /* déclarations en premier */
   padding-block: 48px 60px;
-  @include page-frame;   
   display: grid;
   justify-items: center;
   row-gap: 24px;
   text-align: center;
+
+  /* mixin en dernier pour éviter mixed-decls */
+  @include page-frame;
 }
 
 .notfound__code {
@@ -38,15 +45,19 @@
 
 /* -------- 375px -------- */
 @media (max-width: 375px) {
-  .notfound {  
-  min-height: calc(100vh - 160px);
-  padding: 40px 20px;}
-  .notfound__code { font-size: 96px;margin-top: 50px; }
-  .notfound__msg { font-size: 18px; margin-top: 0px; }
-  .notfound__link { font-size: 14px; margin-top: 0px; }
-  .notfound__msg {
-  white-space: pre-line;
-  text-align: center;
-}
+  .notfound {
+    min-height: calc(100vh - 160px);
+    padding: 40px 20px;
+  }
 
+  .notfound__code { font-size: 96px; margin-top: 50px; }
+
+  .notfound__msg {
+    font-size: 18px;
+    margin-top: 0;
+    white-space: pre-line;
+    text-align: center;
+  }
+
+  .notfound__link { font-size: 14px; margin-top: 0; }
 }

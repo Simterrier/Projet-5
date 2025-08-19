@@ -1,3 +1,8 @@
+@use "sass:meta";
+@use "variables" as *;
+@use "mixins" as *;
+
+/* Import CSS pur (police) : OK, non concerné par la dépréciation */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,25 +17,21 @@ html, body {
 
 /* Layout global (sticky footer) */
 .app {
-  min-height: 100vh;          /* occupe au moins la hauteur viewport */
+  min-height: 100vh;      /* occupe au moins la hauteur du viewport */
   display: flex;
   flex-direction: column;
 }
 .main-content {
-  flex: 1 0 auto;             /* le main prend l’espace restant */
+  flex: 1 0 auto;         /* le main prend l’espace restant */
 }
-/* (Pas d’override mobile ici -> pas de blanc sous le footer) */
 
-
-/* Imports modules */
-@import "./variables";
-@import "./mixins";
-@import "./card";
-@import "./grid";
-@import "./header";
-@import "./banner";
-@import "./footer";
-@import "./logement";
-@import "./notFound";
-@import "./apropos";
-
+/* ===== Imports de tes feuilles SCSS (remplace @import) =====
+   L'ordre influe sur l'ordre du CSS généré, comme avec @import. */
+@include meta.load-css("card");
+@include meta.load-css("grid");
+@include meta.load-css("header");
+@include meta.load-css("banner");
+@include meta.load-css("footer");
+@include meta.load-css("logement");
+@include meta.load-css("notFound");
+@include meta.load-css("apropos");

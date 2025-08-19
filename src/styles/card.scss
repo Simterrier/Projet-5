@@ -1,3 +1,7 @@
+/* styles/card.scss */
+@use "variables" as *;
+@use "mixins" as *;
+
 /* ====== CARDS ====== */
 .card {
   display: block;

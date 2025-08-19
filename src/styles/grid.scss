@@ -1,5 +1,5 @@
-@import "./variables";
-@import "./mixins";
+@use "./variables" as *;
+@use "./mixins" as *;
 
 /* Base 2540 */
 .listing {
@@ -10,63 +10,51 @@
 .listing__inner {
   background: #f6f6f6;
   border-radius: $radius-lg;
-  padding: 100px; /* ton confort desktop */
-  /* centrer et limiter à 1240 quand <=1440 */
-  @include center-on-1440;
+  padding: 100px;              /* confort desktop */
+  @include center-on-1440;     /* centre/limite à 1240 ≤1440 */
 }
 
 /* grille 3 / 2 / 1 colonnes */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 104px; /* tu l’avais déjà, conservé */
+  gap: 104px;
 }
 
+/* -------- 1440px -------- */
 @media (max-width: 1440px) {
-  .listing {
-    padding: 0 100px; /* garde le même cadre que la bannière */
-  }
-
-  .listing__inner {
-    padding: 50px; /* réduit par rapport au 2540 */
-  }
-
+  .listing { padding: 0 100px; }             /* même cadre que la bannière */
+  .listing__inner { padding: 50px; }         /* réduit */
   .grid {
-    grid-template-columns: repeat(3, 340px); /* 3 colonnes de 340px */
-    gap: 60px; /* espace entre les cards */
+    grid-template-columns: repeat(3, 340px);
+    gap: 60px;
     justify-content: center;
   }
-
-  .card__thumb {
-    width: 340px;
-    height: 340px;
-  }
+  .card__thumb { width: 340px; height: 340px; }
 }
 
+/* -------- 375px -------- */
 @media (max-width: 375px) {
   .listing {
-    padding: 0 20px;          /* marge horizontale plus petite */
-    margin-bottom: 40px;      /* espace sous la section */
+    padding: 0 $pad-mobile;
+    margin-bottom: 0;                         /* pas d’espace blanc sous la section */
   }
 
   .listing__inner {
-    padding: 16px;            /* réduit le padding interne */
-    background-color: #ffffff;
+    padding: 16px;
+    background: #ffffff;                      /* ✅ fond blanc sur mobile (maquette) */
+    border-radius: $radius-lg;
   }
 
   .grid {
-    grid-template-columns: 1fr; /* 1 seule colonne */
-    gap: 20px;                  /* espacement vertical */
-    justify-items: center;      /* centre la card */
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
   }
 
-  .card__thumb {
-    width: 335px;   /* largeur fixée selon maquette mobile */
-    height: 255px;  /* hauteur fixée selon maquette mobile */
-  }
+  .card__thumb { width: 335px; height: 255px; }
 
   .card__title {
-      /* texte un peu plus petit */
     left: 10px;
     bottom: 10px;
   }

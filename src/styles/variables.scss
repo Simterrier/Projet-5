@@ -1,14 +1,15 @@
-$primary: #ff6060;
+/* styles/variables.scss */
+$primary: #ff6060 !default;
 
-$white: #fff;
-$black: #000;
+$white: #fff !default;
+$black: #000 !default;
 
-$radius-lg: 25px;
-$radius-card: 10px;
+$radius-lg: 25px !default;
+$radius-card: 10px !default;
 
 /* Largeurs et paddings */
-$container-max: 1240px; // maquette figma
-$pad-desktop: 100px;    // écran 2540
-$pad-tablet: 60px;      // écran 1440
-$pad-mobile: 20px;      // mobile 375
-$bp-xs: 375px;
+$container-max: 1240px !default; // maquette figma
+$pad-desktop: 100px !default;    // écran 2540
+$pad-tablet: 60px !default;      // écran 1440
+$pad-mobile: 20px !default;      // mobile 375
+$bp-xs: 375px !default;

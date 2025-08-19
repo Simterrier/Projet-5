@@ -1,6 +1,6 @@
 /* ====== FICHE LOGEMENT ====== */
-@import "./variables";
-@import "./mixins";
+@use "variables" as *;
+@use "mixins" as *;
 
 /* Base 2540 : cadre horizontal + centrage à 1440 */
 .lodging {
@@ -162,9 +162,7 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
     overflow: hidden;
   }
 
-  .host {
-    margin-bottom: 0;
-  }
+  .host { margin-bottom: 0; }
 
   /* largeur commune */
   .lodging {
@@ -183,12 +181,10 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
 
   .carousel__btn img,
   .carousel__btn svg {
-    width: 12px ;   /* flèche réelle réduite */
+    width: 12px;   /* flèche réelle réduite */
   }
 
-  .carousel__count {
-    display: none;
-  }
+  .carousel__count { display: none; }
   
   /* Header colonne */
   .lodging__header {
@@ -197,19 +193,10 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
     margin: 10px 0;
   }
 
-  .lodging__title {
-    font-size: 18px;
-    font-weight: 500;
-  }
+  .lodging__title { font-size: 18px; font-weight: 500; }
+  .lodging__location { font-size: 14px; font-weight: 500; }
 
-  .lodging__location {
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  .lodging__tags {
-    gap: 6px;
-  }
+  .lodging__tags { gap: 6px; }
   .tag {
     font-size: 10px;
     font-weight: 700;
@@ -224,13 +211,8 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
     align-items: center;
   }
 
-  .rating {
-    order: 1;
-    gap: 6px;
-  }
-  .rating__star {
-    width: 18px;
-  }
+  .rating { order: 1; gap: 6px; }
+  .rating__star { width: 18px; }
 
   .host {
     order: 2;
@@ -238,14 +220,8 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
     align-items: center;
     gap: 8px;
   }
-  .host__name {
-    align-items: flex-end;
-    font-size: 14px;
-  }
-  .host__avatar {
-    width: 40px;
-    height: 40px;
-  }
+  .host__name { align-items: flex-end; font-size: 14px; }
+  .host__avatar { width: 40px; height: 40px; }
 
   /* Accordéons : une seule colonne */
   .lodging__accordions {
@@ -258,14 +234,8 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
     min-height: 30px;
     padding: 6px 10px;
 
-    span {
-      font-size: 13px;
-      font-weight: 700; /* ✅ demandé */
-    }
-
-    .accordion__icon {
-      width: 16px;
-    }
+    span { font-size: 13px; font-weight: 700; } /* ✅ demandé */
+    .accordion__icon { width: 16px; }
   }
 
   .lodging .accordion__content {
@@ -273,7 +243,5 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
     line-height: 1.4;
   }
 
-  .lodging .accordion__content p {
-    font-size: 12px;
-  }
+  .lodging .accordion__content p { font-size: 12px; }
 }

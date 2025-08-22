@@ -21,7 +21,7 @@ export default function FicheLogement() {
     equipments = [],
   } = logement;
 
-  // Découpe Nom/Prénom(s) en gérant tous les cas
+  
   const fullName = (host?.name ?? "").trim();
   const parts = fullName ? fullName.split(" ") : [];
   const last = parts.length > 1 ? parts[parts.length - 1] : "";

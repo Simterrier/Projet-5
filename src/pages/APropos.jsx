@@ -1,5 +1,5 @@
 import Banner from "../components/Banner";
-import bannerImg from "../assets/BannerAPropos.png"; // remplace si tu as une image dédiée
+import bannerImg from "../assets/BannerAPropos.png"; 
 import Accordion from "../components/Accordion";
 
 const items = [

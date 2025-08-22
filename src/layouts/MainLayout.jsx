@@ -10,7 +10,7 @@ export default function MainLayout() {
       <main className="main-content">
         <Outlet />
       </main>
-      <Footer /> {/* directement dans .app, pas dans un container */}
+      <Footer /> {}
     </div>
   );
 }

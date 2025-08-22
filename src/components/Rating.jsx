@@ -1,5 +1,5 @@
-import fullStar from "../assets/FullStar.png"; // étoile pleine
-import emptyStar from "../assets/EmptyStar.png"; // étoile vide si tu en as une
+import fullStar from "../assets/FullStar.png"; 
+import emptyStar from "../assets/EmptyStar.png"; 
 
 export default function Rating({ value }) {
   const stars = [];

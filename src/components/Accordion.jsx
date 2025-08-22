@@ -7,7 +7,7 @@ export default function Accordion({ title, children, defaultOpen = false }) {
   const uid = useId();
 
   const toggle = (e) => {
-    e.stopPropagation();        // évite de déclencher un handler parent par accident
+    e.stopPropagation();        
     setIsOpen((o) => !o);
   };
 
@@ -28,7 +28,7 @@ export default function Accordion({ title, children, defaultOpen = false }) {
         />
       </button>
 
-      {/* Rendu conditionnel : impossible que l'autre s'ouvre "vide" */}
+      {}
       {isOpen && (
         <div id={`panel-${uid}`} className="accordion__content" role="region">
           {children}

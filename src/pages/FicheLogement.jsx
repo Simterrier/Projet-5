@@ -1,4 +1,5 @@
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import NotFound from "./NotFound";
 import logements from "../data/logements.json";
 import Carousel from "../components/Carousel";
 import Rating from "../components/Rating";
@@ -8,7 +9,7 @@ export default function FicheLogement() {
   const { id } = useParams();
   const logement = logements.find((l) => String(l.id) === String(id));
 
-  if (!logement) return <Navigate to="*" replace />;
+  if (!logement) return <NotFound />;
 
   const {
     title,

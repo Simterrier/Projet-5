@@ -6,10 +6,7 @@ export default function Accordion({ title, children, defaultOpen = false }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const uid = useId();
 
-  const toggle = (e) => {
-    e.stopPropagation();        
-    setIsOpen((o) => !o);
-  };
+const toggle = () => setIsOpen((o) => !o);
 
   return (
     <div className={`accordion${isOpen ? " open" : ""}`}>

@@ -4,11 +4,11 @@
 
 /* Base 2540 : cadre horizontal + centrage à 1440 */
 .lodging {
-  @include page-frame;     /* padding-inline: 100px → 60px → 20px */
-  @include center-on-1440; /* max-width: 1240 quand <=1440 */
+  @include page-frame;
+  @include center-on-1440;
 
   @media (max-width: 1440px) {
-    padding-inline: 0;   /* ✅ aligne avec la bannière */
+    padding-inline: 0;
   }
 }
 
@@ -105,7 +105,7 @@
 /* -------- Accordéons (overrides de page, pas le comportement) */
 .lodging__accordions {
   display: grid;
-  grid-template-columns: 1fr 1fr;  /* 2 colonnes desktop */
+  grid-template-columns: 1fr 1fr;
   gap: 76px;
   margin: 24px 0 60px;
   align-items: start;
@@ -118,7 +118,7 @@
   overflow: hidden;
 }
 
-/* En-tête : tailles locales (couleur/rouge vient de accordion.scss) */
+/* En-tête : tailles locales */
 .lodging .accordion__header {
   width: 100%;
   min-height: 52px;
@@ -139,10 +139,7 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
   padding-left: 0;
   margin: 0;
 }
-.accordion__content li {
-  margin-bottom: 8px;
-  line-height: 1.4;
-}
+.accordion__content li { margin-bottom: 8px; line-height: 1.4; }
 .accordion__content li:last-child { margin-bottom: 0; }
 
 /* -------- 1440 */

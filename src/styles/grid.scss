@@ -3,7 +3,7 @@
 
 /* Base 2540 */
 .listing {
-  padding: 0 $pad-desktop;
+  @include page-frame;   /* ← au lieu de padding: 0 $pad-desktop; */
   margin-bottom: 50px;
 }
 
@@ -23,8 +23,7 @@
 
 /* -------- 1440px -------- */
 @media (max-width: 1440px) {
-  .listing { padding: 0 100px; }             /* même cadre que la bannière */
-  .listing__inner { padding: 50px; }         /* réduit */
+  .listing__inner { padding: 50px; }
   .grid {
     grid-template-columns: repeat(3, 340px);
     gap: 60px;
@@ -36,13 +35,12 @@
 /* -------- 375px -------- */
 @media (max-width: 375px) {
   .listing {
-    padding: 0 $pad-mobile;
     margin-bottom: 0;                         /* pas d’espace blanc sous la section */
   }
 
   .listing__inner {
     padding: 16px;
-    background: #ffffff;                      /* ✅ fond blanc sur mobile (maquette) */
+    background: #ffffff;                      /* fond blanc sur mobile (maquette) */
     border-radius: $radius-lg;
   }
 

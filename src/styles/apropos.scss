@@ -7,13 +7,11 @@
   margin: 0 auto;
 
   .banner {
-    margin-bottom: 60px;   /* espace sous la bannière */
-    @include page-frame;   /* mixin en dernier -> pas de mixed-decls */
+    margin-bottom: 60px;
+    @include page-frame;   /* mixin en dernier */
   }
 
-  .banner__inner {
-    position: relative;
-  }
+  .banner__inner { position: relative; }
 
   /* Image + Overlay = mêmes dimensions (version figée) */
   .banner__image,
@@ -29,11 +27,11 @@
     box-shadow: 0px 4px 4px 0px #00000040;
   }
 
-  /* Overlay 30% */
+  /* Overlay 30% (spécifique À propos) */
   .banner__inner::after {
     content: "";
     position: absolute;
-    inset: 0;                   /* couvre strictement l’image */
+    inset: 0;
     background: rgba(0, 0, 0, 0.3);
     pointer-events: none;
     z-index: 1;
@@ -63,11 +61,17 @@
   width: 100%;
 }
 
-.accordion__header {
+/* — scoping local — */
+.about .accordion__header {
   min-height: 52px;
   padding-block: 12px;
   display: flex;
   align-items: center;
+
+  span {
+    font-size: 24px;
+    font-weight: 700;
+  }
 }
 
 .about .accordion__header .accordion__icon {
@@ -76,7 +80,7 @@
   margin-right: 10px;
 }
 
-/* Texte interne conservé */
+/* Texte interne */
 .about__text {
   margin: 0;
   font-size: 16px;
@@ -84,41 +88,6 @@
   color: #000;
 }
 
-/* Titres accordéons */
-.accordion__header span {
-  font-size: 24px;
-  font-weight: 700;
-}
-/* Accordions : mini complément commun */
-.about .accordion__trigger {
-  list-style: none;
-}
-.about .accordion__trigger::-webkit-details-marker { display: none; }
-.about .accordion__trigger::marker { content: ""; }
-
-.about .accordion__icon { transition: transform 250ms ease; }
-
-.about .accordion__panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 300ms ease;
-  overflow: hidden;
-  background: #fff; /* tu peux mettre #f6f6f6 si tu préfères */
-}
-.about .accordion__panel-inner {
-  overflow: hidden;
-  padding: 0 16px 12px 16px;
-  min-height: 0;
-  > *:first-child { margin-top: 0; }
-  > *:last-child  { margin-bottom: 0; }
-}
-.about .accordion[open] .accordion__icon  { transform: rotate(180deg); }
-.about .accordion[open] .accordion__panel { grid-template-rows: 1fr; }
-
-@media (prefers-reduced-motion: reduce) {
-  .about .accordion__icon,
-  .about .accordion__panel { transition: none !important; }
-}
 /* -------- 1440px -------- */
 @media (max-width: 1440px) {
   .about__accordions {
@@ -136,25 +105,21 @@
 
 /* -------- 375px -------- */
 @media (max-width: 375px) {
-  /* padding latéral sur le wrapper */
   .about .banner {
     margin-bottom: 32px;
     padding: 0 $pad-mobile;
   }
 
-  .about .banner__inner {
-    overflow: hidden;           /* clippe image + overlay au même radius */
-  }
+  .about .banner__inner { overflow: hidden; }
 
   .about .banner__image,
   .about .banner__inner::after {
-    height: 111px;              /* mobile */
+    height: 111px;
     max-width: none;
     border-radius: 10px;
     box-shadow: none;
   }
 
-  /* Accordions centrés, même largeur que la bannière */
   .about__accordions {
     width: 335px;
     max-width: 100%;
@@ -162,12 +127,9 @@
     gap: 16px;
   }
 
-  /* En-tête des accordions */
   .about .accordion__header {
     min-height: 30px;
     padding: 6px 10px;
-    display: flex;
-    align-items: center;
 
     span {
       font-size: 13px;
@@ -180,7 +142,6 @@
     }
   }
 
-  /* Contenu des accordions */
   .about .accordion__content .about__text {
     font-size: 12px;
     font-weight: 500;

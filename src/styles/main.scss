@@ -1,15 +1,17 @@
+/* --- TOUJOURS d'abord : les @use --- */
 @use "sass:meta";
 @use "variables" as *;
 @use "mixins" as *;
-@use "./a11y.scss";
-@use "./accordion.scss";
 
+/* helpers globaux */
+@use "./a11y";
+@use "./accordion";
 
-/* Import CSS pur (police) : OK, non concerné par la dépréciation */
+/* --- ensuite seulement : autres règles/at-rules --- */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+/* reset léger */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html, body, #root { height: 100%; }
 
 html, body {
@@ -18,23 +20,20 @@ html, body {
   color: #000;
 }
 
-/* Layout global (sticky footer) */
+/* layout global (sticky footer) */
 .app {
-  min-height: 100vh;      /* occupe au moins la hauteur du viewport */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-.main-content {
-  flex: 1 0 auto;         /* le main prend l’espace restant */
-}
+.main-content { flex: 1 0 auto; }
 
-/* ===== Imports de tes feuilles SCSS (remplace @import) =====
-   L'ordre influe sur l'ordre du CSS généré, comme avec @import. */
-@include meta.load-css("card");
-@include meta.load-css("grid");
+/* feuilles spécifiques */
 @include meta.load-css("header");
 @include meta.load-css("banner");
-@include meta.load-css("footer");
+@include meta.load-css("card");
+@include meta.load-css("grid");
 @include meta.load-css("logement");
-@include meta.load-css("notFound");
 @include meta.load-css("apropos");
+@include meta.load-css("footer");
+@include meta.load-css("notFound");

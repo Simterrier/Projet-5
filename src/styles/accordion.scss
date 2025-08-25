@@ -1,0 +1,76 @@
+/* src/styles/accordion.scss */
+@use "variables" as *;
+
+/* Base commune pour tous les accordéons */
+$accordion-radius: $radius-card !default;
+$accordion-transition: 300ms ease;
+
+.accordion {
+  border-radius: $accordion-radius;
+  overflow: hidden; /* clip pendant l’anim */
+}
+
+/* summary = déclencheur */
+.accordion__trigger {
+  /* cacher le chevron natif des <summary> */
+  list-style: none;
+  &::-webkit-details-marker { display: none; }
+  &::marker { content: ""; }
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+
+  /* style par défaut (Kasa rouge) — surcharge possible dans les pages */
+  background: $primary;
+  color: #fff;
+
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+.accordion__title { font-weight: 700; }
+
+.accordion__icon {
+  display: inline-block;
+  transition: transform 250ms ease;
+  /* largeur gérée par les pages si besoin */
+}
+
+/* Panneau animé en CSS-only (details[open]) */
+.accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;                /* fermé */
+  transition: grid-template-rows $accordion-transition;
+  overflow: hidden;
+  background: #fff;                        /* base neutre (surchargée si besoin) */
+  min-height: 0;
+}
+.accordion__panel-inner {
+  overflow: hidden;
+  padding: 14px 16px;
+  min-height: 0;
+
+  /* anti-collapsing margins */
+  > *:first-child { margin-top: 0; }
+  > *:last-child  { margin-bottom: 0; }
+}
+
+/* État ouvert */
+.accordion[open] .accordion__icon  { transform: rotate(180deg); }
+.accordion[open] .accordion__panel { grid-template-rows: 1fr; }
+
+/* Accessibilité : respecter la préférence utilisateur */
+@media (prefers-reduced-motion: reduce) {
+  .accordion__icon,
+  .accordion__panel { transition: none !important; }
+}

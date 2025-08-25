@@ -1,36 +1,25 @@
-import { useId, useState } from "react";
-import arrowUp from "../assets/arrowUp.png";
 import arrowDown from "../assets/arrowDown.png";
 
+
+
 export default function Accordion({ title, children, defaultOpen = false }) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
-  const uid = useId();
-
-const toggle = () => setIsOpen((o) => !o);
-
   return (
-    <div className={`accordion${isOpen ? " open" : ""}`}>
-      <button
-        type="button"
-        className="accordion__header"
-        onClick={toggle}
-        aria-expanded={isOpen}
-        aria-controls={`panel-${uid}`}
-      >
-        <span>{title}</span>
+    <details className="accordion" open={!!defaultOpen}>
+      <summary className="accordion__trigger accordion__header">
+        <span className="accordion__title">{title}</span>
         <img
-          src={isOpen ? arrowDown : arrowUp}
+          src={arrowDown}
           alt=""
+          aria-hidden="true"
           className="accordion__icon"
         />
-      </button>
+      </summary>
 
-      {}
-      {isOpen && (
-        <div id={`panel-${uid}`} className="accordion__content" role="region">
+      <div className="accordion__panel">
+        <div className="accordion__panel-inner accordion__content">
           {children}
         </div>
-      )}
-    </div>
+      </div>
+    </details>
   );
 }

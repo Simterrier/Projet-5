@@ -8,7 +8,7 @@
   @include center-on-1440; /* max-width: 1240 quand <=1440 */
 
   @media (max-width: 1440px) {
-    padding-inline: 0;   /* ✅ retire le padding pour aligner avec la bannière */
+    padding-inline: 0;   /* ✅ aligne avec la bannière */
   }
 }
 
@@ -16,7 +16,7 @@
 .carousel {
   position: relative;
   width: 100%;
-  height: 780px;              /* tu voulais conserver cette hauteur en 2540 */
+  height: 780px;
   border-radius: $radius-lg;
   overflow: hidden;
   margin-bottom: 40px;
@@ -102,36 +102,38 @@
 .rating { display: inline-flex; gap: 15px; }
 .rating__star { width: 24px; height: auto; object-fit: contain; }
 
-/* -------- Accordéons */
+/* -------- Accordéons (overrides de page, pas le comportement) */
 .lodging__accordions {
   display: grid;
   grid-template-columns: 1fr 1fr;  /* 2 colonnes desktop */
   gap: 76px;
   margin: 24px 0 60px;
-  align-items: start;              /* empêche l’étirement vertical */
+  align-items: start;
 }
+
+/* Apparence locale : fond gris, radius */
 .accordion {
   background: #f6f6f6;
   border-radius: 10px;
   overflow: hidden;
 }
-.accordion__header {
+
+/* En-tête : tailles locales (couleur/rouge vient de accordion.scss) */
+.lodging .accordion__header {
   width: 100%;
   min-height: 52px;
   padding: 14px 16px;
-  background: $primary; color: #fff;
   font-weight: 600; font-size: 16px;
-  border: 0;
   display: flex; justify-content: space-between; align-items: center;
-  cursor: pointer;
 
   span { font-size: 18px; font-weight: 700; }
   .accordion__icon { width: 32px; flex-shrink: 0; }
 }
+
+/* Contenu : padding + styles de listes */
 .accordion__content { padding: 14px 16px; }
 p.lodging__desc { font-size: 16px; font-weight: 400; }
 
-/* scoping des listes dans les accordions */
 .accordion__content ul {
   list-style: none;
   padding-left: 0;
@@ -141,9 +143,7 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
   margin-bottom: 8px;
   line-height: 1.4;
 }
-.accordion__content li:last-child {
-  margin-bottom: 0;
-}
+.accordion__content li:last-child { margin-bottom: 0; }
 
 /* -------- 1440 */
 @media (max-width: 1440px) {
@@ -155,9 +155,9 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
 /* -------- 375 */
 @media (max-width: 375px) {
   .carousel {
-    width: 335px;     /* largeur max en mobile */
-    height: 255px;    /* tu avais déjà */
-    margin: 0 auto 24px; /* centrée et petit espace en bas */
+    width: 335px;
+    height: 255px;
+    margin: 0 auto 24px;
     border-radius: 10px;
     overflow: hidden;
   }
@@ -168,21 +168,19 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
   .lodging {
     display: flex;
     flex-direction: column;
-    align-items: center; /* centre horizontalement */
+    align-items: center;
   }
 
   .carousel,
   .lodging__header,
   .lodging__accordions {
-    width: 335px;  /* même largeur partout */
+    width: 335px;
     max-width: 100%;
     margin-bottom: 0;
   }
 
   .carousel__btn img,
-  .carousel__btn svg {
-    width: 12px;   /* flèche réelle réduite */
-  }
+  .carousel__btn svg { width: 12px; }
 
   .carousel__count { display: none; }
   
@@ -197,11 +195,7 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
   .lodging__location { font-size: 14px; font-weight: 500; }
 
   .lodging__tags { gap: 6px; }
-  .tag {
-    font-size: 10px;
-    font-weight: 700;
-    padding: 4px 8px;
-  } 
+  .tag { font-size: 10px; font-weight: 700; padding: 4px 8px; } 
 
   .lodging__right {
     width: 100%;
@@ -214,16 +208,11 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
   .rating { order: 1; gap: 6px; }
   .rating__star { width: 18px; }
 
-  .host {
-    order: 2;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-  }
+  .host { order: 2; flex-direction: row; align-items: center; gap: 8px; }
   .host__name { align-items: flex-end; font-size: 14px; }
   .host__avatar { width: 40px; height: 40px; }
 
-  /* Accordéons : une seule colonne */
+  /* Accordéons : 1 colonne */
   .lodging__accordions {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -233,8 +222,7 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
   .lodging .accordion__header {
     min-height: 30px;
     padding: 6px 10px;
-
-    span { font-size: 13px; font-weight: 700; } /* ✅ demandé */
+    span { font-size: 13px; font-weight: 700; }
     .accordion__icon { width: 16px; }
   }
 

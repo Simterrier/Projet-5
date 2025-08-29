@@ -1,11 +1,10 @@
-/* ====== BANNER ====== */
+
 @use "variables" as *;
 @use "mixins" as *;
 
 .banner {
   width: 100%;
   margin-bottom: 50px;
-  /* Le cadre horizontal est sur le wrapper (pas sur __inner) */
   @include page-frame;
 }
 
@@ -13,11 +12,11 @@
   position: relative;
 }
 
-/* Image + overlay = mêmes dimensions */
+
 .banner__image,
 .banner__inner::after {
   width: 100%;
-  height: 400px;          /* desktop */
+  height: 400px;          
   border-radius: $radius-lg;
   display: block;
 }

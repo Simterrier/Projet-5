@@ -1,4 +1,4 @@
-/* styles/header.scss */
+
 @use "variables" as *;
 @use "mixins" as *;
 
@@ -9,7 +9,7 @@
 .header__inner {
   width: 100%;
   margin: 0;
-  padding: 50px $pad-desktop; // utilise la variable
+  padding: 50px $pad-desktop; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,25 +31,25 @@
   &.active { text-decoration: underline; }
 }
 
-/* -------- 1024 -------- */
+
 @media (max-width: 1024px) {
   .header__inner {
     padding: 40px $pad-tablet; // aligné avec banner
   }
 }
 
-/* -------- 375 -------- */
+
 @media (max-width: 375px) {
   .header__inner {
-    padding: 20px;   /* réduit le padding autour */
+    padding: 20px;   
   }
 
   .header__logo img {
-    width: 145px;    /* logo réduit */
+    width: 145px;    
   }
 
   .header__nav {
-    gap: 20px;       /* espace réduit entre les liens */
+    gap: 20px;       
   }
 
   .header__nav a {

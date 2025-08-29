@@ -1,4 +1,4 @@
-/* styles/footer.scss */
+
 @use "variables" as *;
 @use "mixins" as *;
 
@@ -16,25 +16,23 @@
   &__logo { width: 122px; display: block; }
   &__legal { margin: 0; font-size: 24px; text-align: center; }
 
-  /* mixin en dernier pour éviter mixed-decls */
   @include page-frame;
 }
 
-/* -------- 1440px -------- */
 @media (max-width: 1440px) {
   .app .footer { padding: 40px $pad-tablet 30px; }
 }
 
-/* -------- 375px -------- */
+
 @media (max-width: 375px) {
   .app .footer {
-    padding-block: 50px;   /* top & bottom */
-    gap: 10px;             /* espace réduit entre logo et texte */
+    padding-block: 50px;   
+    gap: 10px;            
   }
 
   .app .footer__legal {
-    white-space: pre-line; /* pour "All\nrights" dans le JSX */
-    font-size: 12px;       /* taille mobile */
+    white-space: pre-line; 
+    font-size: 12px;       
     line-height: 1.4;
     margin: 0;
     text-align: center;

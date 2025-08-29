@@ -1,4 +1,4 @@
-/* src/styles/accordion.scss */
+
 @use "variables" as *;
 
 /* Base commune pour tous les accordéons */
@@ -7,7 +7,7 @@ $accordion-transition: 300ms ease;
 
 .accordion {
   border-radius: $accordion-radius;
-  overflow: hidden; /* clip pendant l’anim */
+  overflow: hidden; 
 }
 
 /* summary = déclencheur */
@@ -27,8 +27,6 @@ $accordion-transition: 300ms ease;
   cursor: pointer;
   font: inherit;
   text-align: left;
-
-  /* style par défaut (Kasa rouge) — surcharge possible dans les pages */
   background: $primary;
   color: #fff;
 
@@ -52,7 +50,7 @@ $accordion-transition: 300ms ease;
   grid-template-rows: 0fr;                /* fermé */
   transition: grid-template-rows $accordion-transition;
   overflow: hidden;
-  background: #fff;                        /* base neutre (surchargée si besoin) */
+  background: #fff;                        
   min-height: 0;
 }
 .accordion__panel-inner {

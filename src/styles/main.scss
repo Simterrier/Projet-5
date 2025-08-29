@@ -1,16 +1,16 @@
-/* --- TOUJOURS d'abord : les @use --- */
+
 @use "sass:meta";
 @use "variables" as *;
 @use "mixins" as *;
 
-/* helpers globaux */
+
 @use "./a11y";
 @use "./accordion";
 
-/* --- ensuite seulement : autres règles/at-rules --- */
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
-/* reset léger */
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body, #root { height: 100%; }
 
@@ -20,7 +20,7 @@ html, body {
   color: #000;
 }
 
-/* layout global (sticky footer) */
+
 .app {
   min-height: 100vh;
   display: flex;
@@ -28,7 +28,6 @@ html, body {
 }
 .main-content { flex: 1 0 auto; }
 
-/* feuilles spécifiques */
 @include meta.load-css("header");
 @include meta.load-css("banner");
 @include meta.load-css("card");

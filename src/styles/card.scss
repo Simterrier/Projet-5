@@ -1,8 +1,8 @@
-/* styles/card.scss */
+
 @use "variables" as *;
 @use "mixins" as *;
 
-/* ====== CARDS ====== */
+
 .card {
   display: block;
   text-decoration: none;
@@ -40,8 +40,8 @@
   bottom: 12px;
   margin: 0;
   color: #fff;
-  font-size: 18px;       /* ✅ fixé partout */
-  font-weight: 700;      /* ✅ fixé partout */
+  font-size: 18px;        
+  font-weight: 700;      
   line-height: 1.2;
   max-width: calc(100% - 24px);
   overflow: hidden;

@@ -1,16 +1,14 @@
-/* styles/notFound.scss */
+
 @use "variables" as *;
 @use "mixins" as *;
 
 .notfound {
-  /* déclarations en premier */
   padding-block: 48px 60px;
   display: grid;
   justify-items: center;
   row-gap: 24px;
   text-align: center;
 
-  /* mixin en dernier pour éviter mixed-decls */
   @include page-frame;
 }
 

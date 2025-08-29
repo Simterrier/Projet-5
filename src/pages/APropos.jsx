@@ -28,7 +28,7 @@ const items = [
 export default function APropos() {
   return (
     <section className="about">
-      {/* Bannière sans texte, avec brightness appliqué via SCSS */}
+      {}
       <Banner image={bannerImg} />
 
       <div className="about__accordions">

@@ -1,4 +1,4 @@
-/* ====== FICHE LOGEMENT ====== */
+
 @use "variables" as *;
 @use "mixins" as *;
 
@@ -102,7 +102,7 @@
 .rating { display: inline-flex; gap: 15px; }
 .rating__star { width: 24px; height: auto; object-fit: contain; }
 
-/* -------- Accordéons (overrides de page, pas le comportement) */
+/* -------- Accordéons */
 .lodging__accordions {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -111,7 +111,7 @@
   align-items: start;
 }
 
-/* Apparence locale : fond gris, radius */
+/* Apparence locale  */
 .accordion {
   background: #f6f6f6;
   border-radius: 10px;
@@ -149,7 +149,7 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
   .rating__star { width: 22px; }
 }
 
-/* -------- 375 */
+
 @media (max-width: 375px) {
   .carousel {
     width: 335px;
@@ -161,7 +161,7 @@ p.lodging__desc { font-size: 16px; font-weight: 400; }
 
   .host { margin-bottom: 0; }
 
-  /* largeur commune */
+ 
   .lodging {
     display: flex;
     flex-direction: column;

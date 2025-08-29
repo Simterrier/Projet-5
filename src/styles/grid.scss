@@ -3,14 +3,14 @@
 
 /* Base 2540 */
 .listing {
-  @include page-frame;   /* ← au lieu de padding: 0 $pad-desktop; */
+  @include page-frame;   
   margin-bottom: 50px;
 }
 
 .listing__inner {
   background: #f6f6f6;
   border-radius: $radius-lg;
-  padding: 100px;              /* confort desktop */
+  padding: 100px;             
   @include center-on-1440;     /* centre/limite à 1240 ≤1440 */
 }
 
@@ -21,7 +21,7 @@
   gap: 104px;
 }
 
-/* -------- 1440px -------- */
+
 @media (max-width: 1440px) {
   .listing__inner { padding: 50px; }
   .grid {
@@ -32,10 +32,10 @@
   .card__thumb { width: 340px; height: 340px; }
 }
 
-/* -------- 375px -------- */
+
 @media (max-width: 375px) {
   .listing {
-    margin-bottom: 0;                         /* pas d’espace blanc sous la section */
+    margin-bottom: 0;                         
   }
 
   .listing__inner {

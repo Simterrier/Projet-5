@@ -1,4 +1,4 @@
-/* styles/_mixins.scss */
+
 @use "./variables" as *;
 
 /* Breakpoints utilisés partout */
@@ -12,7 +12,6 @@ $bp-375: 375px !default;
 
 /* Cadre horizontal du site : 2540 (base) → 1440 → 375 */
 @mixin page-frame {
-  /* Base (ton écran 2540) */
   padding-inline: $pad-desktop;
 
   /* Figma 1440 */
@@ -34,7 +33,7 @@ $bp-375: 375px !default;
   }
 }
 
-/* Optionnels mais utiles */
+
 @mixin sr-only {
   position: absolute !important;
   width: 1px !important;

@@ -4,7 +4,7 @@ import logo from "../assets/logo.png";
 export default function Header() {
   return (
     <header className="header">
-      {/* ← wrapper plein écran */}
+      {}
       <div className="header__inner">
         <NavLink to="/" className="header__logo">
           <img src={logo} alt="Kasa" />

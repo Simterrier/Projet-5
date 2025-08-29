@@ -7,7 +7,7 @@ import NotFound from "../pages/NotFound";
 
 export default function AppRouter() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Projet-5">
       <Routes>
         {/* Layout principal avec header/footer */}
         <Route element={<MainLayout />}>
